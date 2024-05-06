@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label for="">Height:</label>
+    <input type="text" id="h"><br><br>
+
+    <label for="">Weight:</label>
+    <input type="text" id="w"><br><br>
+
+
+    <h1 id="pr"></h1>
+</body>
+</html>
+
+<script>
+
+    var a=document.getElementById("h").value
+    var b=document.getElementById("w").value
+
+    var ans=+b / (+a * +a)
+
+    document.getElementById("pr").innerHTML = ans
+</script>
