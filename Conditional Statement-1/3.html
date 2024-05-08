@@ -1,0 +1,50 @@
+<!-- 3. **Number Comparison**
+   Write a program that compares two numbers and outputs a message based on their relationship:
+   - If the first number is greater than the second number, output "First number is greater."
+   - If the second number is greater than the first number, output "Second number is greater."
+   - If both numbers are equal, output "Both numbers are equal." -->
+
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+   </head>
+   <body>
+   
+    <h1>Enter Number A:</h1>
+    <input type="text" id="n1">
+    <h1>Enter Number B:</h1>
+    <input type="text" id="n2">
+
+    <h1 id="ans"></h1>
+   
+   </body>
+   </html>
+   
+   <script>
+       let a=document.getElementById("n1").value;
+       let b=document.getElementById("n2").value;
+   
+       if(a === "" && b === "")
+       {
+           console.log("enter numbers");
+       }
+       else
+       {
+           if(a==b)
+           {
+               document.getElementById("ans").innerHTML = "Both numbers are equal";
+           }
+           else if(a>b)
+           {
+               document.getElementById("ans").innerHTML = "First number is greater";
+           }
+           else if(a<b)
+           {
+               document.getElementById("ans").innerHTML = "Secound number is greater";
+           }
+   
+       }
+   </script>

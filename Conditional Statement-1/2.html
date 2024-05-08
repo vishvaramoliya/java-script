@@ -1,0 +1,58 @@
+<!-- 2. **Grading System**
+   Create a program that takes a student's score as input and assigns a letter grade based on the score:
+   - If the score is between 90 and 100, output "A"
+   - If the score is between 80 and 89, output "B"
+   - If the score is between 70 and 79, output "C"
+   - If the score is between 60 and 69, output "D"
+   - If the score is below 60, output "F" -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Enter mark</h1>
+    <input type="text" id="tm">
+
+    <h1 id="ans"></h1>
+
+</body>
+</html>
+
+<script>
+    let a=document.getElementById("tm").value;
+
+    if(a === "")
+    {
+        console.log("enter mark");
+    }
+    else
+    {
+        if(a<=100 && a>=90)
+        {
+            document.getElementById("ans").innerHTML = "A";
+        }
+        else if(a>=80 && a<=89)
+        {
+            document.getElementById("ans").innerHTML = "B";
+        }
+        else if(a>=70 && a<=79)
+        {
+            document.getElementById("ans").innerHTML = "C";
+        }
+        else if(a>=60 && a<=69)
+        {
+            document.getElementById("ans").innerHTML = "D";
+        }
+        else
+        {
+            document.getElementById("ans").innerHTML = "F";
+        }
+
+    }
+</script>
