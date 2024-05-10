@@ -1,0 +1,59 @@
+<!-- 2. Check if sum of given angles is 180 degree . If yes check if it's equilateral , scalene or isosceles.
+ -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    ENTER FIRST ANGLE
+    <input type="text" id="fa">
+
+    ENTER SECOND ANGLE
+    <input type="text" id="sa">
+
+    ENTER THIRD ANGLE
+    <input type="text" id="ta">
+
+    <h1 id="ans"></h1>
+</body>
+</html>
+
+<script>
+
+    let a=document.getElementById("fa").value
+    let b=document.getElementById("sa").value
+    let c=document.getElementById("ta").value
+
+    let sumofag=+a+ +b+ +c
+
+    if(sumofag === 180)
+    {
+        if(a === b && b === c)
+        {
+            document.getElementById("ans").innerHTML = "Its Equilateral"
+        }
+        
+        else if(a === b || b===c || c===a)
+        {
+            document.getElementById("ans").innerHTML = "Its Isosceles"
+        }
+
+        else
+        {
+            document.getElementById("ans").innerHTML = "Its Scalene"
+        }
+
+    }
+
+    else
+    {
+        document.getElementById("ans").innerHTML = "Not a valid triangle"
+    }
+</script>
