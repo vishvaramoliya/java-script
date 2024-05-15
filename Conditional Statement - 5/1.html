@@ -1,0 +1,63 @@
+<!-- **Question 1:**
+
+**Title:** Day of the Week
+
+**Description:** Write a JavaScript program that uses a `switch-case` statement to check the value of a variable `day`. Depending on the value of `day`, display the following messages:
+- If `day` is "Monday", console.log("It's the start of the workweek.").
+- If `day` is "Friday", console.log("It's almost the weekend!").
+- For any other value of `day`, console.log("It's some other day.").
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Day of the week</h1>
+    <br>
+
+    Enter the day
+    <input type="text" id="week">
+</body>
+</html>
+
+<script>
+
+    let a=document.getElementById("week").value
+
+    switch (a)
+    {
+        case "monday":
+        console.log("It's the start of the workweek.");
+        break;
+        
+        case "tuesday":
+        console.log("It's some other day.");
+        break; 
+
+        case "wednesday":
+        console.log("It's some other day.");
+        break;
+
+        case "thursday":
+        console.log("It's some other day.");
+        break;
+        
+        case "friday":
+        console.log("It's almost the weekend!");
+        break; 
+
+        case "saturday":
+        console.log("It's some other day.");
+        break;
+
+        case "sunday":
+        console.log("It's some other day.");
+        break;
+    }
+</script>

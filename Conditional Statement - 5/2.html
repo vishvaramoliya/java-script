@@ -1,0 +1,66 @@
+<!-- **Question 2:**
+
+**Title:** Calculator
+
+**Description:** Create a JavaScript program that takes three variables: `number1`, `number2`, and `operator`. 
+Using a `switch-case` statement, perform a mathematical operation based on the value of `operator`. Handle the
+following cases:
+- If `operator` is "+", add `number1` and `number2` and console.log the result.
+- If `operator` is "-", subtract `number2` from `number1` and console.log the result.
+- If `operator` is "*", multiply `number1` and `number2` and console.log the result.
+- If `operator` is "/", divide `number1` by `number2` and console.log the result.
+- For any other value of `operator`, console.log("Invalid operator"). -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Calculator</h1>
+    <br>
+
+    Enter the variable 1
+    <input type="text" id="v1"><br><br>
+
+    Enter the variable 2
+    <input type="text" id="v2"><br><br>
+  
+    Enter the operator
+    <input type="text" id="op"><br>
+
+</body>
+</html>
+
+<script>
+
+    let a=document.getElementById("v1").value
+    let b=document.getElementById("v2").value
+    let c=document.getElementById("op").value
+
+    switch (c)
+    {
+        case "+":
+        console.log(+a + +b);
+        break;
+        
+        case "-":
+        console.log (+b - +a);
+        break; 
+
+        case "*":
+        console.log(+a * +b);
+        break;
+
+        case "/":
+        console.log(+a / +b);
+        break;
+        
+        default:
+        console.log("Invalid operator")
+    }
+</script>
