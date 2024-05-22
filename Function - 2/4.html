@@ -1,0 +1,36 @@
+<!-- 4.  Design a function that computes the area of a square as parameters. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    ENTER FIRST:
+    <input type="text" id="in1"><br>
+
+
+    <h1 id="ans"></h1>
+
+</body>
+</html>
+
+<script>
+
+    let a=document.getElementById("in1").value
+
+    sqr = (a,b) => {
+        let ans= 4 * +a
+
+        return ans
+    }
+
+  
+
+    document.getElementById("ans").innerHTML = "parameter of square is="+ sqr(a)
+    
+</script>

@@ -1,0 +1,47 @@
+<!-- 6. Design a function that finds string has an "A" in starting or end. -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    ENTER FIRST:
+    <input type="text" id="in1"><br>
+
+    <h1 id="ans"></h1>
+
+</body>
+</html>
+
+<script>
+
+    let a=document.getElementById("in1").value
+
+    str = (a) => {
+        
+        if(a[0] === 'A' || a[0] === 'a' )
+        {
+            return "Got A in starting"
+        }
+        else if(a[a.length-1] === 'a' || a[a.length-1] === 'A')
+        {
+            return "Got A in ending"
+        }
+        else
+        {
+            return "Not found A"
+        }
+
+    }
+
+  
+
+    document.getElementById("ans").innerHTML = "sum is="+ str(a)
+    
+</script>
