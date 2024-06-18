@@ -1,0 +1,31 @@
+<!--Q5.Return only name of students who scored more than 60 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    let students = [
+        {name : "Priya" , no : 21 , marks : 55},
+        {name : "Vishwa" , no : 21 , marks : 50},
+        {name : "Ayush" , no : 16 , marks : 90},
+        {name : "Rutul" , no : 14 , marks : 70},
+    ]
+
+
+    let ans = students.filter((el)=>{
+        return el.marks > 60
+    }).map((el)=>{
+        return el.name
+    })
+
+    console.log(ans)
+</script>
