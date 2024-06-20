@@ -1,0 +1,103 @@
+<!-- 1. Complete the functionality in the file selectors.html
+On clicking the button Change H1 the colour of first <h1> should turn to red
+On clicking the button Change H3 the colour of all <h3> should turn to green
+On clicking the button Change H5 the colour of all <h5> should turn to blue
+On clicking Change Green all the elements with the class green should change to green
+On clicking Change Blue all the elements with the class blue should change to blue
+On clicking Change Red all the elements with the class red should change to red -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 class="blue">MY NAME IS VISHWA RAMOLIYA</h1>
+    <button onclick="H1()">Heading 1</button>
+
+    <br>
+
+    <h3 class="h3 blue">VISHWA</h3>
+    <h3 class="h3 red">RAMOLIYA</h3>
+    <h3 class="h3 red">FULLSTACK DEVELOPER</h3>
+    <button onclick="H2()">Heading 2</button>
+
+    <br><br>
+    <h5 class="green">HY,I M VISHWA RAMOLIYA</h5>
+    <h5 class="red">I M STUDY IN RED AND WHITE MULTIMEDIA EDUCATION</h5>
+    <h5 class="green">I M FULLSTACK DEVELOPER</h5>
+    <button onclick="H3()">Heading 3</button>
+
+    <br><br>
+
+
+
+    <button onclick="green()">GREEN</button>
+
+    <button onclick="blue()">BLUE</button>
+
+    <button onclick="red()">RED</button>
+
+
+
+</body>
+</html>
+
+<script>
+
+    function H1(){
+
+        document.querySelector("h1").style.color = "red"
+    }
+
+    function H2(){
+
+        let head =document.querySelectorAll("h3")
+
+        for(let i=0 ; i < head.length ; i++){
+            head[i].style.color = "green"
+        }
+    }
+
+    function H3(){
+
+        let heading =document.querySelectorAll("h5")
+
+        for(let i=0 ; i < heading.length ; i++){
+            heading[i].style.color = "blue"
+        }
+    }
+
+    function green(){
+
+        let heading =document.querySelectorAll(".green")
+
+        for(let i=0 ; i < heading.length ; i++){
+            heading[i].style.color = "green"
+        }
+    }
+
+    function red(){
+
+        let heading =document.querySelectorAll(".red")
+
+        for(let i=0 ; i < heading.length ; i++){
+            heading[i].style.color = "red"
+        }
+    }
+
+    function blue(){
+
+        let heading =document.querySelectorAll(".blue")
+
+        for(let i=0 ; i < heading.length ; i++){
+            heading[i].style.color = "blue"
+        }
+    }
+
+</script>

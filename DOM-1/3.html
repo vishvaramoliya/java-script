@@ -1,0 +1,87 @@
+<!-- Mini Calculator
+Create a mini calculator application, which has following functionalities
+Addition
+Subtraction
+Division
+Multiplication
+Your app should have
+Two input boxes which should take two numbers from the user.
+Four Buttons with following text content
+Add
+Subtract
+Divide
+Multiply
+
+When user enter 2 and 4 and clicks on multiply button, an alert should come with 8 as ansWhen user
+enter 8 and 4 and clicks on Divide button,an alert should come with 2 as ans -->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Content Manipulation</title>
+</head>
+
+<body>
+
+    <input id="in1" type="number">
+    <input id="in2" type="number">
+
+    <h1>your answer is : <span id="ans"></span></h1>
+
+    <hr />
+
+    <button onclick="Addition()">Addition</button>
+
+    <button onclick="Subtraction()">Subtraction</button>
+
+    <button onclick="Division()">Division</button>
+
+    <button onclick="Multiplication()">Multiplication</button>
+
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+    function Addition() {
+
+        let val1 = document.getElementById("in1").value
+        let val2 = document.getElementById("in2").value
+
+        document.getElementById("ans").innerHTML = +val1 + +val2
+
+    }
+
+    function Subtraction() {
+
+        let val1 = document.getElementById("in1").value
+        let val2 = document.getElementById("in2").value
+
+        document.getElementById("ans").innerHTML = +val1 - +val2
+
+    }
+
+    function Division() {
+
+        let val1 = document.getElementById("in1").value
+        let val2 = document.getElementById("in2").value
+
+        document.getElementById("ans").innerHTML = +val1 / +val2
+
+    }
+
+    function Multiplication() {
+
+        let val1 = document.getElementById("in1").value
+        let val2 = document.getElementById("in2").value
+
+        document.getElementById("ans").innerHTML = +val1 * +val2
+
+    }
+
+</script>
