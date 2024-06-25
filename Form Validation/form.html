@@ -1,0 +1,81 @@
+<!-- Create JS Form Validation name , password , confirm password, date , hobby , email , gender
+**If user don't fill all input box show error
+**Check if password is of length more than 8
+** Check if password equals to confirm password
+** Show error in red color
+**Add good UI -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+        <form action="" id="signup">
+
+            <label for="">Name:</label>
+            <input type="text" id="name">
+            <br><br><br>
+
+            <label for="">Phone Number:</label>
+            <input type="text" id="phn">
+            <br><br><br>
+
+
+            <label for="">Email:</label>
+            <input type="text" id="email">
+            <br><br><br>
+
+            <label for="">Password:</label>
+            <input type="text" id="pw">
+            <br><br><br>
+
+            <label for="">Confirm password:</label>
+            <input type="text" id="cpw">
+            <br><br><br>
+
+            
+            <input type="submit">
+
+            <br><br><br><br><br>
+
+            <span id="err"></span>
+            
+        </form>
+    
+</body>
+</html>
+
+<script>
+    document.getElementById("signup").onsubmit = function (event){
+
+        document.getElementById("err").innerHTML = ""
+        event.preventDefault()
+
+        try{
+            let name = document.getElementById("name").value 
+            let pass = document.getElementById("pw").value
+            let cpw = document.getElementById("cpw").value
+
+            if(name === "")
+            {
+                throw new Error("ENTER THE NAME")
+            }
+            if(pass <= 8)
+            {
+                throw new Error("MAX 8 CHAR REQUIRED")
+            }
+            if(pass !== cpw)
+            {
+                throw new Error("PASSWORD NOT MATCH")
+            }
+        }
+        catch(err){
+            document.getElementById("err").innerHTML = err.message
+        }
+    }
+</script>
