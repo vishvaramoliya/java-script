@@ -1,0 +1,41 @@
+@media (min-width:0px) and (max-width:1024px){
+    .img1{
+        order: 2;
+        display: flex;
+        justify-content: center;
+    }
+    .box3{
+        order: 1;
+    }
+    .box4{
+        order: 3;
+    }
+
+}
+@media (min-width:0px) and (max-width:426px){
+    #head{
+        display: none;
+    }
+    .box4{
+        display: none;
+    }
+}
+@media (min-width:0px) and (max-width:768px){
+    #box2{
+        display: none;
+    }
+    #txt1{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 50px;
+    }
+    #txt1 div{
+        width: 100%;
+        text-align: center;
+    }
+    #txt1 div h3{
+        font-size: 35px;
+    }
+
+}
