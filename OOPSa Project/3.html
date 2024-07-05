@@ -1,0 +1,60 @@
+<!-- Q3. Create Animal class extend to Cat and Dog(Create method eat , sleep , sound )(Properties name) -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    class Animal {
+        constructor(name) {
+            this.name = name;
+        }
+
+        eat() {
+            console.log(this.name + "is eating.");
+        }
+
+        sleep() {
+            console.log( this.name + "is sleeping.");
+        }
+    }
+
+    class Cat extends Animal {
+        constructor(name) {
+            super(name);
+        }
+
+        sound() {
+            console.log( this.name + "says meow!");
+        }
+    }
+
+    class Dog extends Animal {
+        constructor(name) {
+            super(name);
+        }
+
+        sound() {
+            console.log( this.name + "says woow!");
+        }
+    }
+
+    const myCat = new Cat('Sweety');
+    const myDog = new Dog('Star');
+
+    myCat.eat();
+    myCat.sleep();
+    myCat.sound();
+
+    myDog.eat();
+    myDog.sleep();
+    myDog.sound();
+</script>
