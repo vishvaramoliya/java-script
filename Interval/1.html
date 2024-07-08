@@ -1,0 +1,50 @@
+<!-- Create a birthday countdown -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    h1{
+        color: white;
+    }
+    img{
+        display: none;
+    }
+</style>
+<body>
+    
+    <center>
+        <h1></h1>
+        <img src="https://i.pinimg.com/originals/46/3b/d6/463bd674f7fad8ec76b61d4179f5707f.gif" alt="">
+    </center>
+
+</body>
+</html>
+
+<script>
+
+    let index = 10
+
+    let stop = setInterval(()=>{
+        index--
+
+    document.querySelector("h1").innerHTML = index
+
+    if(index === -1)
+    {
+        clearInterval(stop)
+        document.querySelector("h1").style.display = "none"
+        document.querySelector("img").style.display = "block"
+    }
+   },1000)
+</script>

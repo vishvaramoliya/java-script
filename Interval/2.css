@@ -1,0 +1,28 @@
+.main1{
+    background-color: #02395a;
+    margin-top: 15px;
+    width: 95%;
+}
+body{
+    display: flex;
+    justify-content: center;
+}
+img{
+    width: 40px;
+}
+.row{   
+    padding: 15px;
+}
+.col div{
+    text-align: center;
+}
+i{
+    color: white;
+    font-size: 30px;
+}
+.icon{
+    height: 50px;
+}
+p{
+    color: grey;
+}
