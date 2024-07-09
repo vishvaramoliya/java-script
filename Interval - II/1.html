@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img{
+        display: none;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<body>
+
+    <img src="img/1aaeb0a6531bef88.jpg" alt="">
+    <img src="img/354cde8026deab5a.jpg" alt="">
+    <img src="img/9384b37a848c5e60.jpg" alt="">
+    <img src="img/9e9aa250dfecdbc3.jpg" alt="">
+    <img src="img/bdd9bb733f1c0b71.jpg" alt="">
+    <img src="img/ca7c68deddbda50e.jpg" alt="">
+</body>
+</html>
+
+<script>
+
+    let pic = document.querySelectorAll("img")
+
+    let index = 0
+
+    function slides(index){
+        for(let i = 0 ; i < pic.length ; i++)
+    {
+        pic[i].style.display = "none"
+    }
+    pic[index].style.display = "block"
+    }
+
+
+    function show(){
+        setInterval(()=>{
+            slides(index)
+            index++
+
+            if(index === pic.length){
+                index = 0
+            }
+        },1000)
+    }
+
+
+    show()
+</script>
