@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>LocalStorage</h1>
+    <input type="text" id="UserName" placeholder="Enter name"><br>
+    <button id="addUser">Add addUser</button>
+    <div id="userList"></div>
+    <button id="clearStorage">Clear All Storage</button>
+
+</body>
+</html>
+
+
+<script>
+
+
+    function DisplayData(){
+
+        let div = document.getElementById("userList")
+
+        div.innerHTML= ""
+
+        let users = JSON.parse(localStorage.getItem("Users")) || []
+
+
+        users.forEach((element,index) => {
+            
+            let h1 = document.createElement("h1")
+            h1.innerHTML = element.name
+
+            let btn = document.createElement("button")
+            btn.innerText = "Delete"
+
+            btn.addEventListener("click" , function(){
+                let users = JSON.parse(localStorage.getItem("Users"))
+                users.splice(index,1)
+                localStorage.setItem("Users",JSON.stringify(users))
+                DisplayData()
+            })
+
+            div.append(h1 , btn)
+        });
+
+
+    }
+
+
+
+    document.getElementById("addUser").addEventListener("click" , function(){
+
+        let users = JSON.parse(localStorage.getItem("Users")) || []
+
+        let user = document.getElementById("UserName").value 
+
+        let obj = {
+            name:user
+        }   
+
+        users.push(obj)
+
+        localStorage.setItem("Users" , JSON.stringify(users))
+        DisplayData()
+        document.getElementById("UserName").value=""
+
+        
+    })
+
+    DisplayData()
+
+</script>

@@ -1,0 +1,46 @@
+<!--  SET ITEM IN LOCALSTORAGE -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1>LOCALSTORAGE</h1>
+
+    <input type="text" id="data" placeholder="ENTER YOUR DATA">
+    <br><br>
+    <button id="ADD">ADD DATA</button>
+
+    <div is="USERLIST"></div>
+    <button id="CLEAR">CLEAR STORAGE</button>
+
+</body>
+</html>
+
+
+
+<script>
+
+        document.getElementById("ADD").addEventListener("click" , function(){
+
+            let users = JSON.parse(localStorage.getItem("USERS")) || []
+
+            let per = document.getElementById("data").value 
+
+            let obj = {
+                name : per
+            }
+
+            users.push(obj)
+
+            localStorage.setItem("USERS" , JSON.stringify(users))
+            document.getElementById("data").value = ""
+        })
+
+
+</script>

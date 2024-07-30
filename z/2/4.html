@@ -68,15 +68,18 @@ fetch('https://fakestoreapi.com/products')
 
 
             edit.addEventListener("click" , function(){
-                input.value = el.price;
+            input.value = el.price;
 
             update.addEventListener("click" , function(){
-                let amt = input.value
-                price.innerHTML = "$" + amt
-                json[index].price = amt
-                localStorage.setItem("keys", JSON.stringify(json))
-                });
-            })            
+
+            let amt = input.value
+            price.innerHTML = "$" + amt
+            json[index].price = amt
+            localStorage.setItem("keys", JSON.stringify(json))
+            });
+            })
+
+            
         });
     }
         </script>

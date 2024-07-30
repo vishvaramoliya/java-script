@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="pr1.css">
+</head>
+
+
+<body>
+
+   <div class="main1">
+
+    <input type="text" id="input1" placeholder="ENTER CITY"><br><br><br>
+    <button onclick="search() " class="btn">View</button>
+    <div id="m1"></div>
+    <div id="main">
+
+    </div>
+   </div>
+
+</body>
+
+</html>
+
+<script>
+
+    function search() {
+        let data = document.getElementById("input1").value
+
+        fetch(`http://api.weatherapi.com/v1/current.json?key=e3bfb07bd8e444aa9cb91051243007&q=India=${data}`)
+            .then((res) => {
+                return res.json()
+            }).then((json) => {
+                console.log(json)
+                displayData(json)
+            })
+    }
+
+    function display() {
+            let div = document.createElement("div")
+            document.getElementById("m1").innerHTML= ""
+
+            let text = document.createElement("p")
+            text.innerHTML = "CITY"
+
+            let reg = document.createElement("p")
+            reg.innerHTML = "REGION"
+
+            let tmp = document.createElement("p")
+            tmp.innerHTML = "TEMP"
+
+            let pic = document.createElement("img")
+            pic.innerHTML = "ICON"
+
+
+            div.append(text , tmp , reg , pic)
+            document.getElementById("m1").append(div)
+
+    }
+    
+
+
+    function displayData(data) {
+            
+            let div = document.createElement("div")
+            document.getElementById("main").innerHTML= ""
+
+            display()
+
+            let text = document.createElement("p")
+            text.innerHTML = data.location.name
+
+            let reg = document.createElement("p")
+            reg.innerHTML = data.location.region
+
+            let tmp = document.createElement("p")
+            tmp.innerHTML = data.current.temp_c + "&deg C"
+
+            let pic = document.createElement("img")
+            pic.setAttribute("src" , data.current.condition.icon)
+            pic.setAttribute("class" , "img1")
+
+
+            div.append(text , tmp , reg , pic)
+            document.getElementById("main").append(div)
+
+            
+
+    }
+
+
+
+</script>

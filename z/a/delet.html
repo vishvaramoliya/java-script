@@ -1,0 +1,86 @@
+<!--  SET ITEM IN LOCALSTORAGE AND DISPLAY ON SCREEN and delet element -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1>LOCALSTORAGE</h1>
+
+    <input type="text" id="data" placeholder="ENTER YOUR DATA">
+    <br><br>
+    <button id="ADD">ADD DATA</button>
+
+    <div id="USERLIST"></div>
+    <button id="CLEAR">CLEAR STORAGE</button>
+
+</body>
+</html>
+
+
+
+<script>
+
+
+        function DisplayData(){
+
+            let div = document.getElementById("USERLIST")
+
+            div.innerHTML = ""
+
+            let users = JSON.parse(localStorage.getItem("USERS")) || []
+
+
+            users.forEach((element , index) => {
+
+                let h1 = document.createElement("h1")
+                h1.innerHTML = element.name
+
+                let btn = document.createElement("button")
+                btn.innerText = "DELET"
+
+                btn.addEventListener("click" , function(){
+
+                    let users = JSON.parse(localStorage.getItem("USERS")) 
+
+                    users.splice(index , 1)
+
+                    localStorage.setItem("USERS" , JSON.stringify(users))
+
+                    DisplayData()
+                })
+                
+                div.append(h1 , btn)
+            });
+
+
+
+        }
+
+
+        document.getElementById("ADD").addEventListener("click" , function(){
+
+            let users = JSON.parse(localStorage.getItem("USERS")) || []
+
+            let per = document.getElementById("data").value 
+
+            let obj = {
+                name : per
+            }
+
+            users.push(obj)
+
+            localStorage.setItem("USERS" , JSON.stringify(users))
+            DisplayData()
+            document.getElementById("data").value = ""
+        })
+
+        DisplayData()
+
+
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <input id="movie" type="text">
+        <input type="button" value="submit" onclick="fetchingData()">
+
+        <div id="main"></div>
+</body>
+</html>
+
+<script>
+
+    function fetchingData(){
+        let APIKey = "7df1a20c"
+        let movie = document.getElementById("movie").value
+        let url = `http://www.omdbapi.com/?apikey=${APIKey}&t=${movie}`
+fetch(url)
+
+.then(function(res){
+    return res.json()
+}).then(function(json){
+
+    console.log(json)
+    display(json)
+})
+}
+
+fetchingData()
+
+function display(data){
+    let div = document.getElementById("main")
+    let img = document.createElement("img")
+
+    img.setAttribute("src",data.Poster)
+    div.append(img)
+}
+</script>

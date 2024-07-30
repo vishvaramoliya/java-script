@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Storage control</h1>
+    <h1 id="head1"></h1>
+    <h1 id="head2"></h1>
+    <button id="show">Show user</button>
+    <button id="delet">Delet user</button>
+</body>
+</html>
+
+<script>
+
+    const user= {
+        name : 'Vishwa Ramoliya',
+        age : 19 ,
+        email : 'vishvaramoliya@gmail.com'
+    };
+
+    localStorage.setItem("users" , JSON.stringify(user))
+
+    const user2 = {
+        name : 'Priya Lakkad',
+        age : 20 ,
+        email : 'priyalakkad@gmail.com' 
+    }
+
+    localStorage.setItem("users2" , JSON.stringify(user2))
+
+    let per1 = JSON.parse(localStorage.getItem("users"))
+    let per2 = JSON.parse(localStorage.getItem("users2"))
+
+
+    document.getElementById("show").addEventListener('click' , function(){
+
+    document.getElementById("head1").innerHTML = per1.name + "<br>" + per1.age
+    document.getElementById("head2").innerHTML = per2.name + "<br>" + per2.age
+    })
+
+
+    document.getElementById("delet").addEventListener('click' , function(){
+
+    localStorage.removeItem("users")
+    localStorage.removeItem("users2")
+
+    document.getElementById("head1").innerHTML = ""
+    document.getElementById("head2").innerHTML = ""
+    })
+
+</script>

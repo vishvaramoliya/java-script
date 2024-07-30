@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>LOCAL STORAGE</h1>
+
+    <input type="text" id="username" placeholder="ENTER USER NAME">
+
+    <button id="adduser">ADD USER</button>
+    <button id="update">Update</button>
+
+    <div id="userlist"></div>
+    <br><br>
+    <button id="clearstorage">CLEARSTOAGE</button>
+    
+</body>
+</html>
+
+
+<script>
+
+
+        let editIndex = -1;
+
+        function display(){
+
+
+            let div = document.getElementById("userlist")
+
+            div.innerHTML = ""
+
+            let users = JSON.parse(localStorage.getItem("users")) || []
+
+            users.forEach((element,index) => {
+                
+                let h1= document.createElement("h1")
+                h1.innerHTML= element.name
+
+
+                let btn= document.createElement("button")
+                btn.innerText = "DELETE"
+
+
+                btn.addEventListener("click" , function(){
+
+                    let users = JSON.parse(localStorage.getItem("users"))
+
+                    users.splice(index,1)
+                    localStorage.setItem("users" , JSON.stringify(users))
+                    display()
+
+                })
+
+
+                let edit = document.createElement("button")
+                edit.innerText = "EDIT"
+
+                
+                edit.addEventListener("click" , function(){
+
+                    EditData(element.name , index)
+                    
+                })
+
+
+                div.append(h1 , btn , edit)
+            });
+
+
+
+        }
+
+        
+
+        function EditData(name , index){
+
+            let user = document.getElementById("username").value = name
+
+            editIndex = index
+
+        }
+
+
+
+
+
+
+    document.getElementById("adduser").addEventListener("click" , function(){
+
+        let users = JSON.parse(localStorage.getItem("users")) || []
+
+        let user = document.getElementById("username").value 
+
+        let obj = {
+            name : user
+        }
+
+        users.push(obj)
+
+        localStorage.setItem("users" , JSON.stringify(users))
+
+        display()
+        document.getElementById("username").value = ""
+
+    })
+
+
+    document.getElementById("update").addEventListener("click" , function(){
+
+        let users = JSON.parse(localStorage.getItem("users")) || []
+
+        let user = document.getElementById("username").value 
+
+        users[editIndex].name = user 
+
+        localStorage.setItem("users" , JSON.stringify(users))
+
+        display()
+        document.getElementById("username").value = ""
+
+        editIndex = -1
+    })
+
+
+
+    display()
+
+</script>

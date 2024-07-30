@@ -548,7 +548,14 @@ ul {
 footer{
     background-color: #f3f7ff;
     padding: 30px 0px 30px 0px;
+    margin-top: 100px;
 }
 .main10{
-    border: 1px solid;
+    margin-top: 50px;
+}
+.p4{
+    font-weight: 700;
+}
+.main10 .row .col ul li{
+    margin-left: -30px;
 }
