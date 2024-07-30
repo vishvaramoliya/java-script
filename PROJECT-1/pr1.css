@@ -95,4 +95,14 @@ input{
 }
 .img1{
     height: 50px;
+    width: 50px;
+}
+.p1{
+  width: 100%;
+}
+.p2{
+  width: 79%;
+}
+.p3{
+  width: 21%;
 }

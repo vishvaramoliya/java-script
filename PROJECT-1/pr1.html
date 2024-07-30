@@ -13,7 +13,7 @@
 
    <div class="main1">
 
-    <input type="text" id="input1" placeholder="ENTER CITY"><br><br><br>
+    <input type="text" id="input1" placeholder="ENTER CITY FOR VIEW WEATHER"><br><br><br>
     <button onclick="search() " class="btn">View</button>
     <div id="m1"></div>
     <div id="main">
@@ -45,15 +45,19 @@
 
             let text = document.createElement("p")
             text.innerHTML = "CITY"
+            text.setAttribute("class" , "p2")
 
             let reg = document.createElement("p")
             reg.innerHTML = "REGION"
+            reg.setAttribute("class" , "p2")
 
             let tmp = document.createElement("p")
             tmp.innerHTML = "TEMP"
+            tmp.setAttribute("class" , "p2")
 
             let pic = document.createElement("img")
             pic.innerHTML = "ICON"
+            pic.setAttribute("class" , "p3")
 
 
             div.append(text , tmp , reg , pic)
@@ -72,12 +76,15 @@
 
             let text = document.createElement("p")
             text.innerHTML = data.location.name
+            text.setAttribute("class" , "p1")
 
             let reg = document.createElement("p")
             reg.innerHTML = data.location.region
+            reg.setAttribute("class" , "p1")
 
             let tmp = document.createElement("p")
             tmp.innerHTML = data.current.temp_c + "&deg C"
+            tmp.setAttribute("class" , "p1")
 
             let pic = document.createElement("img")
             pic.setAttribute("src" , data.current.condition.icon)
