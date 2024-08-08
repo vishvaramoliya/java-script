@@ -1,82 +1,121 @@
-var myObj= {
-    textSelect: function(){
-        document.getElementById('description').select();
-    },
+let editIndex = -1;
 
-    hide: function() {
-    document.getElementById("form").style.display = "none";
-    document.getElementById("show").style.display = "inline-block";
+function DisplayData(){
 
-},
-    show:function(){
+  // let div = document.createElement("div")
+  document.getElementById("userList").innerHTML = " "
 
-    document.getElementById("form").style.display = "block";
-    document.getElementById("show").style.display = "none";
-    document.getElementById('myDate').valueAsDate = new Date();
-    },
-    removeTask: function () {
-    var id = this.getAttribute('id');
-    var myTasks = returnToDo();
-    myTasks.splice(id, 1);
-    localStorage.setItem('myData', JSON.stringify(myTasks));
-    document.getElementById('myTasks').innerHTML = '';
-    showMyTasks();
-    console.log('delete');
+    let users = JSON.parse(localStorage.getItem("Users")) || []
+
+
+    users.forEach((element,index) => {
+        
+      let div = document.createElement("div")
+      div.setAttribute("class" , "col-2")
+
+
+        let h1 = document.createElement("p")
+        h1.innerHTML = `<p><b style="color:black">Admin: </b><span style="color:#cec7b5">${element.name}</span></p> `
+
+        let h2 = document.createElement("p")
+        h2.innerHTML = `<p><b style="color:black">Subject: </b>${element.sub}</p> `
+
+        let h3 = document.createElement("p")
+        h3.innerHTML = `<p><b style="color:black">Info: </b>${element.desc}</p> `
+
+        let btn = document.createElement("button")
+        btn.innerText = "Delete"
+        btn.setAttribute("class" , "btn1")
+
+
+        btn.addEventListener("click" , function(){
+            let users = JSON.parse(localStorage.getItem("Users"))
+            users.splice(index,1)
+            localStorage.setItem("Users",JSON.stringify(users))
+            DisplayData()
+        })
+
+        let editbtn = document.createElement("button")
+        editbtn.innerText = "Edit"
+        editbtn.setAttribute("class" , "btn1")
+
+        editbtn.addEventListener("click" , function(){
+
+          editData(element.name , index , element.sub , element.desc)
+        })
+
+        div.append(h2 , h1  , h3 , btn , editbtn)
+        document.getElementById("userList").append(div)
+    });
+
 
 }
-};
-function returnToDo(){
-    var myTasks = [];
-    var myTasksTemp = localStorage.getItem('myData');
-    if(myTasksTemp != null){
-        myTasks = JSON.parse(myTasksTemp);
-    }
-    return myTasks;
-}
-function Task(){
-    this.name = document.getElementById('name').value;
-    this.subject = document.getElementById('subject').value;
-    this.date = document.getElementById('myDate').value;
-    this.describe = document.getElementById('description').value;
-}
-function newTask(x,y,z,o){
 
-    var div = document.createElement("div")
-    div.setAttribute("class" , "box1")
 
-    div.innerHTML +=
-        '<div class="col l3 m4 s12 animated zoomIn"> <h4>'+z+  ':</h1>'+
-        '<p>'+y+'</p>' +
-        '<p>By: '+x+'</p>' +
-        '<p>Due: ' +o +'</p>'+
-        '<div class="btn red" >Delete</div>'+
-    '</div>'
+function editData(name , index , sub , desc){
 
-    document.getElementById("myTasks").append(div)
-}
-function showMyTasks(){
-    var myTasks = returnToDo();
-    document.getElementById('myTasks').innerHTML = '';
-    for(var i=0;i<myTasks.length;i++){
-        newTask(
-            myTasks[i].name,
-            myTasks[i].describe,
-            myTasks[i].subject,
-            myTasks[i].date
-        );
-    }
-    var button = document.getElementsByClassName('red');
-    for (var j = 0; j < button.length; j++) {
-        button[j].addEventListener('click', myObj.removeTask);
-        console.log(button[j].addEventListener('click', myObj.removeTask));
+  let user = document.getElementById("UserName").value = name
+  let subj = document.getElementById("sub").value = sub
+  let info = document.getElementById("description").value = desc
 
-    }
+  document.getElementById("editUser").style.display = 'inline'
+  document.getElementById("addUser").style.display = 'none'
+
+  editIndex = index
+
 }
-function submitInfo(){
-    var myTasks = returnToDo();
-    myTasks.push(new Task);
-    localStorage.setItem('myData',JSON.stringify(myTasks));
-    showMyTasks();
-    myObj.hide();
-}
-showMyTasks();
+
+
+
+document.getElementById("addUser").addEventListener("click" , function(){
+
+    let users = JSON.parse(localStorage.getItem("Users")) || []
+
+    let user = document.getElementById("UserName").value 
+    let subject = document.getElementById("sub").value
+    let des = document.getElementById("description").value
+    let obj = {
+        name:user,
+        sub:subject,
+        desc:des
+    }   
+    
+
+    users.push(obj)
+
+    localStorage.setItem("Users" , JSON.stringify(users))
+    DisplayData()
+    document.getElementById("UserName").value=""
+
+    
+})
+
+
+
+document.getElementById("editUser").addEventListener("click" , function(){
+
+  let users = JSON.parse(localStorage.getItem("Users")) || []
+
+  let user = document.getElementById("UserName").value 
+  
+  users[editIndex].name = user 
+
+  localStorage.setItem("Users" , JSON.stringify(users))
+  DisplayData()
+  document.getElementById("UserName").value=""
+
+  editIndex = -1
+
+
+  document.getElementById("editUser").style.display = 'none'
+  document.getElementById("addUser").style.display = 'inline'
+
+})
+
+
+
+
+
+
+
+DisplayData()
