@@ -1,57 +1,82 @@
-    // let tasks = [
-    //     { id: 1,name: 'Finish homework',description: 'Complete the math homework',status: 'pending', priority: 'high'},
-    //     { id: 2, name: 'Buy groceries', description: 'Milk, eggs, and bread', status: 'pending', priority: 'medium' },
-    //     { id: 3, name: 'Clean the house', description: 'Vacuum and dust', status: 'completed', priority: 'low' },
-    //     { id: 4, name: 'Exercise', description: 'Go for a 30-minute run', status: 'pending', priority: 'high' },
-    //     { id: 5, name: 'Read a book', description: 'Finish reading the novel', status: 'pending', priority: 'medium' },
-    //     { id: 6, name: 'Call mom', description: 'Check in and chat with mom', status: 'pending', priority: 'high' },
-    //     { id: 7, name: 'Fix the sink', description: 'Repair the leaking kitchen sink', status: 'in-progress', priority: 'high' },
-    //     { id: 8, name: 'Submit report', description: 'Submit the quarterly report to the manager', status: 'pending', priority: 'high' },
-    //     { id: 9, name: 'Plan vacation', description: 'Research and book flights for summer vacation', status: 'pending', priority: 'medium' },
-    //     { id: 10, name: 'Grocery shopping', description: 'Restock kitchen essentials', status: 'completed', priority: 'medium' },
-    //     { id: 11, name: 'Organize closet', description: 'Clean and organize the closet space', status: 'pending', priority: 'low' },
-    //     { id: 12, name: 'Update resume', description: 'Add recent job experience to resume', status: 'pending', priority: 'medium' },
-    //     { id: 13, name: 'Pay bills', description: 'Pay electricity and internet bills', status: 'completed', priority: 'high' },
-    //     { id: 14, name: 'Buy birthday gift', description: 'Purchase a gift for friend’s birthday', status: 'pending', priority: 'medium' },
-    //     { id: 15, name: 'Prepare presentation', description: 'Create slides for upcoming meeting', status: 'in-progress', priority: 'high' }
-    // ];
+var myObj= {
+    textSelect: function(){
+        document.getElementById('description').select();
+    },
 
-    // localStorage.setItem('task' , JSON.stringify(tasks))
-    
-    // let set = JSON.parse(localStorage.getItem('task'))
-    // console.log(tasks)
+    hide: function() {
+    document.getElementById("form").style.display = "none";
+    document.getElementById("show").style.display = "inline-block";
 
+},
+    show:function(){
 
+    document.getElementById("form").style.display = "block";
+    document.getElementById("show").style.display = "none";
+    document.getElementById('myDate').valueAsDate = new Date();
+    },
+    removeTask: function () {
+    var id = this.getAttribute('id');
+    var myTasks = returnToDo();
+    myTasks.splice(id, 1);
+    localStorage.setItem('myData', JSON.stringify(myTasks));
+    document.getElementById('myTasks').innerHTML = '';
+    showMyTasks();
+    console.log('delete');
 
-    // document.getElementById("btn").addEventListener("click" , function(){
+}
+};
+function returnToDo(){
+    var myTasks = [];
+    var myTasksTemp = localStorage.getItem('myData');
+    if(myTasksTemp != null){
+        myTasks = JSON.parse(myTasksTemp);
+    }
+    return myTasks;
+}
+function Task(){
+    this.name = document.getElementById('name').value;
+    this.subject = document.getElementById('subject').value;
+    this.date = document.getElementById('myDate').value;
+    this.describe = document.getElementById('description').value;
+}
+function newTask(x,y,z,o){
 
-    //     let set = JSON.parse(localStorage.getItem('task'))
+    var div = document.createElement("div")
+    div.setAttribute("class" , "box1")
 
-    //     let val = document.getElementById("input").value
+    div.innerHTML +=
+        '<div class="col l3 m4 s12 animated zoomIn"> <h4>'+z+  ':</h1>'+
+        '<p>'+y+'</p>' +
+        '<p>By: '+x+'</p>' +
+        '<p>Due: ' +o +'</p>'+
+        '<div class="btn red" >Delete</div>'+
+    '</div>'
 
-    //     let div = document.createElement("div")
-    //     document.getElementById("main").innerHTML= ""
+    document.getElementById("myTasks").append(div)
+}
+function showMyTasks(){
+    var myTasks = returnToDo();
+    document.getElementById('myTasks').innerHTML = '';
+    for(var i=0;i<myTasks.length;i++){
+        newTask(
+            myTasks[i].name,
+            myTasks[i].describe,
+            myTasks[i].subject,
+            myTasks[i].date
+        );
+    }
+    var button = document.getElementsByClassName('red');
+    for (var j = 0; j < button.length; j++) {
+        button[j].addEventListener('click', myObj.removeTask);
+        console.log(button[j].addEventListener('click', myObj.removeTask));
 
-    //     let text = document.createElement("p")
-    //     text.innerHTML = tasks[val].name
-    //     text.setAttribute("class" , "p1")
-
-    //     let text1 = document.createElement("p")
-    //     text.innerHTML = tasks[val].description
-    //     text.setAttribute("class" , "p1")
-
-    //     let text2 = document.createElement("p")
-    //     text.innerHTML = tasks[val].status
-    //     text.setAttribute("class" , "p1")
-
-    //     let text3 = document.createElement("p")
-    //     text.innerHTML = tasks[val].priority
-    //     text.setAttribute("class" , "p1")
-        
-
-    //     div.append(text , text1 , text2 , text3)
-    //     document.getElementById("main").append(div)
-
-
-    // })
-  
+    }
+}
+function submitInfo(){
+    var myTasks = returnToDo();
+    myTasks.push(new Task);
+    localStorage.setItem('myData',JSON.stringify(myTasks));
+    showMyTasks();
+    myObj.hide();
+}
+showMyTasks();
