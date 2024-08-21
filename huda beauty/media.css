@@ -1,0 +1,17 @@
+@media (min-width: 0px) and (max-width: 320px) {
+    .icon2{
+        display: block;
+    }
+    nav{
+        display: none;
+    }
+    .icon .a1{
+        display: none;
+    }
+    .img1{
+        margin-left: -110px;
+    }
+    .icon{
+        margin-top: -20px;
+    }
+  }
