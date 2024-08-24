@@ -58,7 +58,14 @@ document.getElementById("cart_icon").addEventListener("click",function()
     document.getElementById("cart").style.backgroundColor = "#f6f1ee"
     document.getElementById("cart").style.overflow = "scroll"
 })
+
+document.getElementById("closes").addEventListener("click",function()
+{
+    document.getElementById("cart").style.display = "none"
+  
+})
    
+
 
     localStorage.setItem("product" , JSON.stringify(arr))
     console.log(arr)
@@ -109,7 +116,7 @@ document.getElementById("cart_icon").addEventListener("click",function()
             "  SHOW YOUR PRODUCT CLICK ON CART ICON"
         )
         
-        document.getElementById("txt").innerHTML = " "
+        // document.getElementById("txt").innerHTML = ""
 
         let main = document.getElementById("main4")
             
@@ -153,6 +160,7 @@ document.getElementById("cart_icon").addEventListener("click",function()
         
         cart_btn.addEventListener("click" , function(){
             div1_cart.remove()
+            alert("Item Removed Sucefully")
         })
 
         })
